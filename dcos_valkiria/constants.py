@@ -1,5 +1,5 @@
-version = open("VERSION").read().rstrip("\n")
-valkiria_version = '0.1.0'
+version = '0.1.0-RC2'
+valkiria_version = '0.1.0-RC2'
 """DCOS valkiria version"""
 url_install = 'http://sodio.stratio.com/nexus/content/sites/paas/valkiria/{0}/valkiria-{0}.tar.gz'.format(valkiria_version)
 url_list = 'http://127.0.0.1:9050/api/v1/list'
