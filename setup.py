@@ -98,7 +98,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
         'console_scripts': [
-            'dcos-valkiria=dcos_valkiria.valkiria:main',
+            'dcos-valkiria=dcos_valkiria.cli:main',
         ],
     },
 )
