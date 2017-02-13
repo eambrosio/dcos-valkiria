@@ -16,3 +16,4 @@ pylint-report.txt
 coverage-reports/
 coverage.ut
 surefire-reports/
+venv*/

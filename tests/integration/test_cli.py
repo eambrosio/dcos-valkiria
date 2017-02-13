@@ -1,5 +1,5 @@
 import subprocess
-from dcos_valkiria import cli
+from dcos_valkiria import valkiria
 
 
 def test_help():
