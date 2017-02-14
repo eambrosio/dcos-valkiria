@@ -25,7 +25,7 @@ Specific tasks actions:
     -m, --masters   list all killable tasks in all master nodes.
     --all           list all killable tasks in all nodes.
 
-See 'valkiria tasks help' for more information.
+See 'valkiria tasks --help' for more information.
 
 """
 

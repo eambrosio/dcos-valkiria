@@ -23,7 +23,7 @@ Specific uninstall actions:
     -m, --masters   stop Valkiria agent in all master nodes.
     --all           stop Valkiria agent in all nodes.
 
-See 'valkiria stop help' for more information.
+See 'valkiria stop --help' for more information.
 
 """
 

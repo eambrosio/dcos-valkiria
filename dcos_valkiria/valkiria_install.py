@@ -23,7 +23,7 @@ Specific install actions:
     -m, --masters   install Valkiria agent in all master nodes.
     --all           install Valkiria agent in all nodes.
 
-See 'valkiria install help' for more information.
+See 'valkiria install --help' for more information.
 
 """
 

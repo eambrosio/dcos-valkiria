@@ -26,7 +26,7 @@ Specific tasks actions:
                                     or both of them (0). [default: 0]
     --task-id=<task-id>             The id of the task that you want to kill.
 
-See 'valkiria kill help' for more information.
+See 'valkiria kill --help' for more information.
 
 """
 

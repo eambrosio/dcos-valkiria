@@ -1,5 +1,4 @@
 import time
-import urllib
 
 from dcos import emitting, util, mesos, http
 from dcos.errors import DefaultError, DCOSException

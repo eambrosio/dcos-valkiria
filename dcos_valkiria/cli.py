@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 """
 Administer and manage tasks in DCOS cluster nodes.
+
 usage: valkiria [--pem=<path>] [--user=<user>]
                 [--option <ssh-opt>=<value>] [--help|-h]
                 [--config-file=<path>] [--ips=<ip-or-list>]
@@ -30,11 +31,12 @@ The most commonly used git commands are:
     tasks       list the killable tasks in agents, masters or any
     kill        kill the task with a specific taskId
 
-See 'valkiria <command> help' for more information on a specific command.
+See 'valkiria <command> --help' for more information on a specific command.
 """
 
 from subprocess import call
 
+import pkg_resources
 from docopt import docopt
 
 
@@ -73,7 +75,8 @@ def parse_args():
 
 
 def call_valkiria_module(module, argv):
-    exit(call(['python', module + '.py'] + argv))
+    pkg = pkg_resources.resource_filename('dcos_valkiria', module)
+    exit(call(['python', pkg + '.py'] + argv))
 
 
 if __name__ == '__main__':

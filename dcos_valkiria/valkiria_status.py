@@ -23,7 +23,7 @@ Specific uninstall actions:
     -m, --masters   check Valkiria agent status in all master nodes.
     --all           check Valkiria agent status in all nodes.
 
-See 'valkiria status help' for more information.
+See 'valkiria status --help' for more information.
 
 """
 
