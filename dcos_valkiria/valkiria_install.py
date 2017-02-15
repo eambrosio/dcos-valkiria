@@ -2,7 +2,8 @@
 """
 Establish an SSH connection to the master or agent nodes and install Valkiria on them.
 
-usage: valkiria install [options] [-a|--agents] [-m|--masters] [--all] [--ips=<ip-or-list>]
+usage:
+    dcos-valkiria install [options] [-a|--agents] [-m|--masters] [--all]
 
 Generic options:
     --pem=<path>
@@ -46,9 +47,9 @@ def _install(ips, user, option, pem, config_file):
                 mkdir -p {6}; cp {5} {6}; rm -rf {7}; rm {4};
                 nohup {6}/valkiria a 2> {9} > /dev/null 2>&1 &
                 echo $! > {8}
-                echo Valkiria was installed successfully
+                echo Valkiria was installed successfully\n
                 else
-                echo Valkiria is already installed in {1}
+                echo Valkiria is already installed in {1}\n
                 fi ' '''.format(
             user,
             ip,

@@ -2,7 +2,8 @@
 """
 Establish an SSH connection to the master or agent nodes and start the Valkiria agent process on them.
 
-usage: valkiria start [options] [-a|--agents] [-m|--masters] [--all] [--ips=<ip-or-list>]
+usage:
+    dcos-valkiria start [options] [-a|--agents] [-m|--masters] [--all]
 
 Generic options:
     --pem=<path>
@@ -18,7 +19,7 @@ Generic options:
     --ips=<ip-iplist>
         List of IP addresses to connect
 
-Specific uninstall actions:
+Specific start actions:
     -a, --agents    start Valkiria agent in all agent nodes.
     -m, --masters   start Valkiria agent in all master nodes.
     --all           start Valkiria agent in all nodes.

@@ -2,7 +2,8 @@
 """
 Establish an SSH connection to the master or agent nodes and kill the task with a specific taskId.
 
-usage: valkiria kill [options] (--ip=<ip-or-hostname>) (--task-id=<task-id>)
+usage:
+    dcos-valkiria kill [options] (--ip=<ip-or-hostname>) (--task-id=<task-id>)
                     [--kill-executor=<kill-executor>]
 
 Generic options:
@@ -93,10 +94,6 @@ def main():
 
     return _kill(ips=nodes, user=user, option=option, pem=pem, config_file=config_file, task_id=task_id,
                  kill_executor=kill_executor)
-
-
-    # else:
-    #     print(__doc__)
 
 
 if __name__ == '__main__':

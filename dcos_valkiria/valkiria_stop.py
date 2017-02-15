@@ -2,7 +2,8 @@
 """
 Establish an SSH connection to the master or agent nodes and stop the Valkiria agent process on them.
 
-usage: valkiria stop [options] [-a|--agents] [-m|--masters] [--all] [--ips=<ip-or-list>]
+usage:
+    dcos-valkiria stop [options] [-a|--agents] [-m|--masters] [--all]
 
 Generic options:
     --pem=<path>

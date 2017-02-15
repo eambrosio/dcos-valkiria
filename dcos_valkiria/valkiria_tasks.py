@@ -2,7 +2,8 @@
 """
 Establish an SSH connection to the master or agent nodes and list all killable tasks.
 
-usage: valkiria tasks [options] [-a|--agents] [-m|--masters] [--all] [--ips=<ip-or-list>]
+usage:
+    dcos-valkiria tasks [options] [-a|--agents] [-m|--masters] [--all]
 
 Generic options:
     --pem=<path>
@@ -131,16 +132,16 @@ def main():
 
     if nodes:
         nodes_info = _tasks(ips=nodes, user=user, option=option, pem=pem, config_file=config_file)
-        return _print_table(nodes_info, _filter=filter_by)
+        print(_print_table(nodes_info, _filter=filter_by))
     elif args['--agents']:
         nodes_info = _tasks_agents(user=user, option=option, pem=pem, config_file=config_file)
-        return _print_table(nodes_info, _filter=filter_by)
+        print(_print_table(nodes_info, _filter=filter_by))
     elif args['--masters']:
         nodes_info = _tasks_masters(user=user, option=option, pem=pem, config_file=config_file)
-        return _print_table(nodes_info, _filter=filter_by)
+        print(_print_table(nodes_info, _filter=filter_by))
     elif args['--all']:
         nodes_info = _tasks_all_nodes(user=user, option=option, pem=pem, config_file=config_file)
-        return _print_table(nodes_info, _filter=filter_by)
+        print(_print_table(nodes_info, _filter=filter_by))
     else:
         print(__doc__)
 

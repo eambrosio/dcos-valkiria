@@ -2,7 +2,9 @@
 """
 Administer and manage tasks in DCOS cluster nodes.
 
-usage: valkiria [--pem=<path>] [--user=<user>]
+usage:
+    dcos valkiria --info
+    dcos valkiria [--pem=<path>] [--user=<user>]
                 [--option <ssh-opt>=<value>] [--help|-h]
                 [--config-file=<path>] [--ips=<ip-or-list>]
                 <command> [<args>...]
@@ -20,9 +22,10 @@ options:
         Path to config file for ssh connection.
     --ips=<ip-iplist>
         List of IP addresses to connect
+    --info
+        Show valkiria info
 
 The most commonly used git commands are:
-    info        show valkiria info
     status      show valkiria agent status
     install     install Valkiria agent in agents, masters or any
     uninstall   uninstall Valkiria agent in agents, masters or any
@@ -34,18 +37,18 @@ The most commonly used git commands are:
 See 'valkiria <command> --help' for more information on a specific command.
 """
 
+import os
 from subprocess import call
 
 import pkg_resources
 from docopt import docopt
-
 
 def main():
     args = parse_args()
 
     argv = [args['<command>']] + args['<args>']
 
-    if args['<command>'] == 'info':
+    if args['<command>'] == '--info':
         print('Administer and manage commands in DCOS cluster nodes.')
     elif args['<command>'] == 'install':
         call_valkiria_module('valkiria_install', argv)
@@ -61,10 +64,10 @@ def main():
         call_valkiria_module('valkiria_tasks', argv)
     elif args['<command>'] == 'kill':
         call_valkiria_module('valkiria_kill', argv)
-    elif args['<command>'] in ['help', None]:
+    elif args['<command>'] in ['--help', None]:
         print(__doc__)
     else:
-        exit("%r is not a valkiria command. See 'valkiria help'." % args['<command>'])
+        exit("%r is not a valkiria command. See 'valkiria help'.\n" % args['<command>'])
 
 
 def parse_args():
@@ -75,8 +78,11 @@ def parse_args():
 
 
 def call_valkiria_module(module, argv):
+    process_venv = os.environ.copy()
+    venv = os.path.join(os.environ['HOME'], '.dcos/subcommands/' + 'valkiria' + '/env')
+    process_venv['SUBPROCESS_VENV'] = venv
     pkg = pkg_resources.resource_filename('dcos_valkiria', module)
-    exit(call(['python', pkg + '.py'] + argv))
+    exit(call([os.path.join(process_venv['SUBPROCESS_VENV'], 'bin/python'), pkg + '.py'] + argv))
 
 
 if __name__ == '__main__':

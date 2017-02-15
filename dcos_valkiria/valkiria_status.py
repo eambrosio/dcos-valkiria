@@ -2,7 +2,8 @@
 """
 Establish an SSH connection to the master or agent nodes to check valkiria agent status.
 
-usage: valkiria status [options] [-a|--agents] [-m|--masters] [--all] [--ips=<ip-or-list>]
+usage:
+    dcos-valkiria status [options] [-a|--agents] [-m|--masters] [--all]
 
 Generic options:
     --pem=<path>

@@ -2,7 +2,8 @@
 """
 Establish an SSH connection to the master or agent nodes and uninstall Valkiria on them.
 
-usage: valkiria uninstall [options] [-a|--agents] [-m|--masters] [--all] [--ips=<ip-or-list>]
+usage:
+    dcos-valkiria uninstall [options] [-a|--agents] [-m|--masters] [--all]
 
 Generic options:
     --pem=<path>
